@@ -14,7 +14,6 @@
 -}
 
 () recv_internal() {
-
 }
 
 (int, int) nxt(int a, int b){
