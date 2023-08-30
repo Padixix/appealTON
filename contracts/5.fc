@@ -14,10 +14,24 @@
 -}
 
 () recv_internal() {
+
+}
+
+(int, int) nxt(int a, int b){
+    return (b, a + b);
 }
 
 ;; testable
 (tuple) fibonacci_sequence (int n, int k) method_id {
-  return null();
+  tuple result = empty_tuple();
+  int fib0 = -1;
+  int fib1 = 1;
+  repeat(n) {
+    (fib0, fib1) = nxt(fib0, fib1);
+  }
+  repeat(k) {
+    (fib0, fib1) = nxt(fib0, fib1);
+    result~tpush(fib1);
+  }
+  return result;
 }
-
